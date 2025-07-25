@@ -2,14 +2,13 @@
 import os
 import pickle
 from sumo_rl import SumoEnvironment
-from abc import ABC, abstractmethod
 from sumo_rl.agents import QLAgent
 from sumo_rl.exploration import EpsilonGreedy
 from linear_rl.true_online_sarsa import TrueOnlineSarsaLambda
 
 
 
-class LearningAgent(ABC):
+class LearningAgent():
 
     def __init__(self, config: dict, env: SumoEnvironment, name: str):
         
@@ -19,7 +18,6 @@ class LearningAgent(ABC):
         self.agent = None
         self.name = name
 
-    @abstractmethod
     def _init_agent(self):
         
         pass
@@ -28,7 +26,7 @@ class LearningAgent(ABC):
         
         return self.name
 
-    @abstractmethod
+
     def run(self, learn: bool, out_path: str) -> str:
        
         pass
